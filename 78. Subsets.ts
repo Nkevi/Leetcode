@@ -25,4 +25,23 @@ function subsets2(nums: number[]): number[][] {
   return arr;
 }
 
+function subsets3(nums: number[]): number[][] {
+  const arr: number[][] = [];
+  const t: number[] = [];
+
+  function dfs(curr: number) {
+    if (curr === nums.length) {
+      arr.push(t.slice());
+      return;
+    }
+    t.push(nums[curr]);
+    dfs(curr + 1);
+    t.pop();
+    dfs(curr + 1);
+  }
+
+  dfs(0);
+  return arr;
+}
+
 
