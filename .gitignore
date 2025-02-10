@@ -2,3 +2,6 @@
 /.vscode
 tsconfig.json
 test.ts
+
+todo-*
+!.*/
