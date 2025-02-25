@@ -13,22 +13,22 @@
  */
 
 function minDiffInBST(root: TreeNode | null): number {
-  let ans = Number.MAX_SAFE_INTEGER;
-  let pre = -1;
+    let ans = Number.MAX_SAFE_INTEGER;
+    let pre = -1;
 
-  function dfs(node: TreeNode | null) {
-    if (!node) return;
+    function dfs(node: TreeNode | null) {
+        if (!node) return;
 
-    dfs(node.left);
-    if (pre === -1) {
-      pre = node.val;
-    } else {
-      ans = Math.min(ans, node.val - pre);
-      pre = node.val;
+        dfs(node.left);
+        if (pre === -1) {
+            pre = node.val;
+        } else {
+            ans = Math.min(ans, node.val - pre);
+            pre = node.val;
+        }
+        dfs(node.right);
     }
-    dfs(node.right);
-  }
 
-  dfs(root);
-  return ans;
+    dfs(root);
+    return ans;
 }
