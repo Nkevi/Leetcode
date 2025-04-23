@@ -13,22 +13,22 @@
  */
 
 function findSecondMinimumValue(root: TreeNode | null): number {
-    let secondMin = -1;
-    let rootVal = root!.val;
+  let secondMin = -1;
+  let rootVal = root!.val;
 
-    function dfs(node: TreeNode | null) {
-        if (!node) return;
+  function dfs(node: TreeNode | null) {
+    if (!node) return;
 
-        if (secondMin !== -1 && node.val > secondMin) return;
+    if (secondMin !== -1 && node.val > secondMin) return;
 
-        if (node.val > rootVal) {
-            secondMin = node.val;
-        }
-
-        dfs(node.left);
-        dfs(node.right);
+    if (node.val > rootVal) {
+      secondMin = node.val;
     }
 
-    dfs(root);
-    return secondMin;
+    dfs(node.left);
+    dfs(node.right);
+  }
+
+  dfs(root);
+  return secondMin;
 }
